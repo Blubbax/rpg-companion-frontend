@@ -1,0 +1,24 @@
+.item-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: baseline;
+
+  .item-name {
+    min-width: 180px;
+  }
+
+  .quantity-selector {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: baseline;
+
+    .quantity {
+      min-width: 40px;
+      text-align: center;
+      cursor: pointer;
+    }
+  }
+}
+

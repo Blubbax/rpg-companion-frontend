@@ -1,0 +1,86 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+
+      <a mat-list-item routerLink="characters" routerLinkActive="mat-accent">
+        <mat-icon mat-list-icon>group</mat-icon>
+        <div mat-line>My Characters</div>
+      </a>
+
+      <mat-divider></mat-divider>
+
+      <a mat-list-item routerLink="features" routerLinkActive="mat-accent">
+        <mat-icon mat-list-icon>favorite</mat-icon>
+        <div mat-line>Features</div>
+      </a>
+
+      <a mat-list-item routerLink="quests" routerLinkActive="mat-accent">
+        <mat-icon mat-list-icon>task</mat-icon>
+        <div mat-line>Quests</div>
+      </a>
+
+      <a mat-list-item routerLink="money" routerLinkActive="mat-accent">
+        <mat-icon mat-list-icon>payments</mat-icon>
+        <div mat-line>Money</div>
+      </a>
+
+      <a mat-list-item routerLink="inventory" routerLinkActive="mat-accent">
+        <mat-icon mat-list-icon>inventory_2</mat-icon>
+        <div mat-line>Inventory</div>
+      </a>
+
+      <a mat-list-item routerLink="story" routerLinkActive="mat-accent">
+        <mat-icon mat-list-icon>history</mat-icon>
+        <div mat-line>Story</div>
+      </a>
+
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>RPG Character Manager</span>
+
+      <span class="spacer"></span>
+
+      <a mat-icon-button routerLink="features" routerLinkActive="mat-accent">
+        <mat-icon mat-list-icon>favorite</mat-icon>
+      </a>
+
+      <a mat-icon-button routerLink="quests" routerLinkActive="mat-accent">
+        <mat-icon mat-list-icon>task</mat-icon>
+      </a>
+
+      <a mat-icon-button routerLink="money" routerLinkActive="mat-accent">
+        <mat-icon mat-list-icon>payments</mat-icon>
+      </a>
+
+      <a mat-icon-button routerLink="inventory" routerLinkActive="mat-accent">
+        <mat-icon mat-list-icon>inventory_2</mat-icon>
+      </a>
+
+      <a mat-icon-button routerLink="story" routerLinkActive="mat-accent">
+        <mat-icon mat-list-icon>history</mat-icon>
+      </a>
+
+    </mat-toolbar>
+
+
+    <div class="content">
+      <ng-content></ng-content>
+    </div>
+
+
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,11 @@
+<div class="add-item-wrapper">
+  <mat-form-field>
+    <mat-label>Name</mat-label>
+    <input matInput required [(ngModel)]="name" (input)="onChange()">
+  </mat-form-field>
+  <mat-form-field class="quantity-input">
+    <mat-label>Quantity</mat-label>
+    <input type="number" min="0" matInput required [(ngModel)]="quantity" (input)="onChange()">
+  </mat-form-field>
+  <button mat-raised-button color="primary" [disabled]="!formValid" (click)="onSubmit()">Add</button>
+</div>

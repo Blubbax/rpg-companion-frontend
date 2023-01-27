@@ -1,0 +1,24 @@
+.header {
+  margin-bottom: 20px;
+}
+
+mat-card {
+  margin-bottom: 20px;
+}
+
+.accordion {
+  margin-bottom: 20px;
+}
+
+mat-form-field {
+  margin-right: 16px;
+}
+
+
+
+
+
+
+.mat-mdc-form-field + .mat-mdc-form-field {
+  margin-left: 8px;
+}

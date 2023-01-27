@@ -1,0 +1,10 @@
+<mat-card>
+  <div class="header">
+    <mat-card-title>{{ feature?.name }}</mat-card-title>
+  </div>
+  <mat-card-content>
+    <p>{{ feature?.description }}</p>
+    <mat-divider></mat-divider>
+  </mat-card-content>
+  <button mat-button (click)="delete()">DELETE</button>
+</mat-card>

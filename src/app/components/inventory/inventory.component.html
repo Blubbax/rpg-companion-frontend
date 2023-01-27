@@ -1,0 +1,5 @@
+<h1>Inventory</h1>
+<app-item-category *ngIf="favorites != undefined" [category]="favorites" [enableControls]="false"></app-item-category>
+<app-item-category *ngFor="let category of this.inventory?.categories; let idx = index" [category]="category"
+  (onDelete)="deleteCategory($event)" (onMoveDown)="moveCategoryDown(idx)" (onMoveUp)="moveCategoryUp(idx)"></app-item-category>
+<app-add-category [inventory]="this.inventory"></app-add-category>

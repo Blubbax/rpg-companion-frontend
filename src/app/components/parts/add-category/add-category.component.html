@@ -1,0 +1,9 @@
+<mat-card>
+  <mat-card-content>
+      <mat-form-field>
+        <mat-label>New Category</mat-label>
+        <input matInput required [(ngModel)]="name" (input)="onChange()">
+      </mat-form-field>
+      <button mat-raised-button color="primary" [disabled]="!formValid" (click)="onSubmit()">Add</button>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,93 @@
+<h1>Campaign - {{ story?.name }}</h1>
+
+<!-- player management -->
+<mat-card>
+  <div class="header">
+    <mat-card-title>Players</mat-card-title>
+  </div>
+  <mat-card-content>
+    <div class="accordion">
+      <mat-accordion>
+        <mat-expansion-panel *ngFor="let player of story?.players">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{ player.name }}
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <app-character [character]="player" (onDelete)="deletePlayer($event)"></app-character>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+    <app-add-character [characterList]="story?.players"></app-add-character>
+  </mat-card-content>
+</mat-card>
+
+<!-- npc management -->
+<mat-card>
+  <div class="header">
+    <mat-card-title>NPCs</mat-card-title>
+  </div>
+  <mat-card-content>
+    <div class="accordion">
+      <mat-accordion>
+        <mat-expansion-panel *ngFor="let npc of story?.npcs">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{ npc.name }}
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <app-character [character]="npc" (onDelete)="deleteNPC($event)"></app-character>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+    <app-add-character [characterList]="story?.npcs"></app-add-character>
+  </mat-card-content>
+</mat-card>
+
+<!-- city management -->
+<mat-card>
+  <div class="header">
+    <mat-card-title>Cities</mat-card-title>
+  </div>
+  <mat-card-content>
+    <div class="accordion">
+      <mat-accordion>
+        <mat-expansion-panel *ngFor="let city of story?.cities">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{ city.name }}
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <app-city [city]="city" (onDelete)="deleteCity($event)"></app-city>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+    <app-add-city [story]="story"></app-add-city>
+  </mat-card-content>
+</mat-card>
+
+<!-- session management -->
+<mat-card>
+  <div class="header">
+    <mat-card-title>Sessions</mat-card-title>
+  </div>
+  <mat-card-content>
+    <div class="accordion">
+      <mat-accordion>
+        <mat-expansion-panel *ngFor="let session of story?.sessions">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{ session.date | date }}
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <p>{{ session?.summary }}</p>
+          <!-- TODO link and data -->
+          <a mat-raised-button color="primary" routerLink="story" target="_blank">Details
+            <mat-icon>open_in_new</mat-icon>
+          </a>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+    <app-add-session [story]="story"></app-add-session>
+  </mat-card-content>
+</mat-card>

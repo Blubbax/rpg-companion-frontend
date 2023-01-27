@@ -1,0 +1,48 @@
+<h1>Money</h1>
+
+<mat-card>
+  <div class="header">
+    <mat-card-title>Balance</mat-card-title>
+  </div>
+
+  <mat-card-content>
+      <div class="line">
+        <div class="label">Gold:</div>
+        <div class="amount">{{ money?.gold }}</div>
+      </div>
+      <div class="line">
+        <div class="label">Silver:</div>
+        <div class="amount">{{ money?.silver }}</div>
+      </div>
+      <div class="line">
+        <div class="label">Copper:</div>
+        <div class="amount">{{ money?.copper }}</div>
+      </div>
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <div class="header">
+    <mat-card-title>Transfer Money</mat-card-title>
+  </div>
+
+  <mat-card-content>
+
+    <mat-form-field>
+      <mat-label>Amount</mat-label>
+      <input type="number" matInput required [(ngModel)]="amount" (input)="onChange()">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" (input)="onChange()">
+      <mat-label>Select</mat-label>
+      <mat-select [(value)]="type" required>
+        <mat-option value="gold">Gold</mat-option>
+        <mat-option value="silver">Silver</mat-option>
+        <mat-option value="copper">Copper</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" [disabled]="!formValid" (click)="onSubmit()">Submit</button>
+
+  </mat-card-content>
+</mat-card>

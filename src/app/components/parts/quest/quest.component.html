@@ -1,0 +1,16 @@
+<div>
+  <p>{{ quest?.description }}</p>
+
+  <mat-stepper *ngIf="quest?.steps" orientation="vertical" linear="true" #stepper>
+    <mat-step *ngFor="let step of quest?.steps">
+      <ng-template matStepLabel>{{ step.name }}</ng-template>
+      <div>
+        <p>{{ step.description }}</p>
+        <mat-checkbox class="example-margin">Fulfilled</mat-checkbox>
+      </div>
+    </mat-step>
+  </mat-stepper>
+
+  // TODO Add step
+
+</div>

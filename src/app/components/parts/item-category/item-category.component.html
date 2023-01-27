@@ -1,0 +1,22 @@
+<mat-card>
+  <div class="header">
+    <mat-card-title>{{ category?.name }}</mat-card-title>
+  </div>
+  <mat-card-content>
+    <app-item *ngFor="let item of category?.items; let idx = index" [item]="item" (onDelete)="deleteItem($event)"
+      (onMoveUp)="moveItemUp(idx)" (onMoveDown)="moveItemDown(idx)"></app-item>
+    <mat-divider *ngIf="enableControls"></mat-divider>
+    <app-add-item *ngIf="enableControls" [category]="category"></app-add-item>
+    <mat-divider *ngIf="enableControls"></mat-divider>
+  </mat-card-content>
+  <div class="actions" *ngIf="enableControls">
+    <button mat-button (click)="delete()">DELETE</button>
+    <div class="spacer"></div>
+    <button mat-icon-button (click)="moveDown()">
+      <mat-icon>arrow_upward</mat-icon>
+    </button>
+    <button mat-icon-button (click)="moveUp()">
+      <mat-icon>arrow_downward</mat-icon>
+    </button>
+  </div>
+</mat-card>
