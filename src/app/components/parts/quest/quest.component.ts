@@ -93,8 +93,6 @@ export class QuestComponent implements OnInit {
   }
 
   deleteQuestStep(step: QuestStep) {
-    console.log("delete");
-    console.log(step)
     this.quest?.steps.forEach((currentItem, index) => {
       if (currentItem === step) {
         this.quest?.steps.splice(index, 1);

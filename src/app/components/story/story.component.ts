@@ -1,3 +1,4 @@
+import { EditModeService } from './../../service/edit-mode.service';
 import { Session } from './../../model/session';
 import { StoryCity } from './../../model/story-city';
 import { SnackbarService } from './../../service/snackbar.service';
@@ -14,20 +15,28 @@ import { Component, OnInit } from '@angular/core';
 export class StoryComponent implements OnInit {
 
   public story: Story | undefined;
-
-  public npcs: StoryCharacter[] = [];
+  public editMode = false;
 
   constructor(
     private characterService: CharacterService,
-    private snackbarService: SnackbarService
+    private snackbarService: SnackbarService,
+    private editModeService: EditModeService
   ) {
+    this.characterService.selectedCharacter.subscribe(data => {
+      this.story = data.story;
+      console.log(this.story.players);
+      this.story?.players.forEach(element => {
+        console.log("Player in parent")
+        console.log(element);
+      });
+    });
+
+    this.editModeService.editMode.subscribe(data => {
+      this.editMode = data;
+    });
   }
 
   ngOnInit(): void {
-    this.characterService.selectedCharacter.subscribe(data => {
-      this.story = data.story;
-      console.log(this.story);
-    });
   }
 
 

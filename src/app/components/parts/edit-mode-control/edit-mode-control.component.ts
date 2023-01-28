@@ -19,7 +19,6 @@ export class EditModeControlComponent implements OnInit {
   }
 
   onChange() {
-    console.log(this.checked)
     this.editModeService.setEditMode(this.checked);
   }
 

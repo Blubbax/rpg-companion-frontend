@@ -18,7 +18,7 @@
         </mat-expansion-panel>
       </mat-accordion>
     </div>
-    <app-add-character [characterList]="story?.players"></app-add-character>
+    <app-add-character *ngIf="editMode" [characterList]="story?.players"></app-add-character>
   </mat-card-content>
 </mat-card>
 
@@ -40,7 +40,7 @@
         </mat-expansion-panel>
       </mat-accordion>
     </div>
-    <app-add-character [characterList]="story?.npcs"></app-add-character>
+    <app-add-character *ngIf="editMode" [characterList]="story?.npcs"></app-add-character>
   </mat-card-content>
 </mat-card>
 
@@ -62,7 +62,7 @@
         </mat-expansion-panel>
       </mat-accordion>
     </div>
-    <app-add-city [story]="story"></app-add-city>
+    <app-add-city *ngIf="editMode" [story]="story"></app-add-city>
   </mat-card-content>
 </mat-card>
 
@@ -88,6 +88,6 @@
         </mat-expansion-panel>
       </mat-accordion>
     </div>
-    <app-add-session [story]="story"></app-add-session>
+    <app-add-session *ngIf="editMode" [story]="story"></app-add-session>
   </mat-card-content>
 </mat-card>

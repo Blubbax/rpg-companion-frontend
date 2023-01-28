@@ -55,7 +55,6 @@ import { EditModeControlComponent } from './components/parts/edit-mode-control/e
 import { QuestListComponent } from './components/parts/quest-list/quest-list.component';
 import { QuestStepDialogComponent } from './components/parts/quest-step-dialog/quest-step-dialog.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,

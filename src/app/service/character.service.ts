@@ -182,10 +182,11 @@ export class CharacterService {
     this.favoritesChanged = this.favoritesChangedSubject.asObservable();
 
     this.loadCharacters().subscribe(result => {
-      console.log(result);
       this.allCharactersData = result;
       if (this.allCharactersData.length > 0) {
         this.selectedCharacterData = this.allCharactersData[0];
+        console.log("Character data received from server")
+        console.log(this.allCharactersData[0])
       } else {
         this.selectedCharacterData = undefined;
       }

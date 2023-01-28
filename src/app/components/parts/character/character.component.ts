@@ -16,7 +16,10 @@ export class CharacterComponent implements OnInit {
 
   constructor(
     private dialog: MatDialog,
-    private characterService: CharacterService) { }
+    private characterService: CharacterService) {
+      console.log("Character from Input")
+      console.log(this.character)
+    }
 
   ngOnInit(): void {
   }
