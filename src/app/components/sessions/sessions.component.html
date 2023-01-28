@@ -1,0 +1,40 @@
+<div>
+  <h1>Current Session</h1>
+  <app-current-session></app-current-session>
+</div>
+
+<h1>Sessions</h1>
+<div class="accordion">
+  <mat-accordion>
+    <mat-expansion-panel *ngFor="let session of story?.sessions">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{ session.date | date }}
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <div class="Summary" *ngIf="session.summary != ''">
+        <h2 class="">Summary</h2>
+        <p class="multiline-text">{{ session.summary }}</p>
+      </div>
+
+      <div class="steps" *ngIf="session.steps.length > 0">
+        <h2 class="">Steps</h2>
+        <app-session-step *ngFor="let step of session.steps; let idx = index" [step]="step" [index]="idx + 1">
+        </app-session-step>
+      </div>
+
+      <button mat-raised-button color="primary" (click)="setCurrentSession(session)">Play this Session</button>
+
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
+
+<mat-card *ngIf="editMode">
+  <div class="header">
+    <mat-card-title>New Session</mat-card-title>
+  </div>
+  <mat-card-content>
+    <app-add-session [story]="story"></app-add-session>
+  </mat-card-content>
+</mat-card>

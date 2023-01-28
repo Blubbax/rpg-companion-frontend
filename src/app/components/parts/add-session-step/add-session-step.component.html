@@ -1,0 +1,18 @@
+<h2>Add step</h2>
+
+<mat-form-field>
+  <mat-label>Name</mat-label>
+  <input matInput required [(ngModel)]="name" (input)="onChange()">
+</mat-form-field>
+<br>
+<mat-form-field>
+  <mat-label>Location</mat-label>
+  <input matInput required [(ngModel)]="place" (input)="onChange()">
+</mat-form-field>
+<br>
+<mat-form-field appearance="fill">
+  <mat-label>Description</mat-label>
+  <textarea matInput [(ngModel)]="description" (input)="onChange()"></textarea>
+</mat-form-field>
+<br>
+<button mat-raised-button color="primary" [disabled]="!formValid" (click)="onSubmit()">Add</button>

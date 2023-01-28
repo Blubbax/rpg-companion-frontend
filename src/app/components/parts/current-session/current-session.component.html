@@ -1,0 +1,27 @@
+<mat-card *ngIf="session != undefined">
+  <div class="header">
+    <mat-card-title>{{ session.date | date }}</mat-card-title>
+  </div>
+  <mat-card-content>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Summary</mat-label>
+      <textarea matInput [(ngModel)]="session.summary" (input)="onChange()"></textarea>
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="saveChanges()" [disabled]="!unsavedChanges">Save</button>
+
+    <div class="steps" *ngIf="session.steps.length > 0">
+      <h2 class="">Steps</h2>
+      <app-session-step *ngFor="let step of session.steps; let idx = index" [step]="step" [index]="idx + 1">
+      </app-session-step>
+    </div>
+
+    <app-add-session-step [session]="session"></app-add-session-step>
+
+
+  </mat-card-content>
+</mat-card>
+
+<mat-card *ngIf="session == undefined">
+  <p>Select a session in the sessions section below.</p>
+</mat-card>

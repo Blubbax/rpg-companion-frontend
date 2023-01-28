@@ -66,28 +66,3 @@
   </mat-card-content>
 </mat-card>
 
-<!-- session management -->
-<mat-card>
-  <div class="header">
-    <mat-card-title>Sessions</mat-card-title>
-  </div>
-  <mat-card-content>
-    <div class="accordion">
-      <mat-accordion>
-        <mat-expansion-panel *ngFor="let session of story?.sessions">
-          <mat-expansion-panel-header>
-            <mat-panel-title>
-              {{ session.date | date }}
-            </mat-panel-title>
-          </mat-expansion-panel-header>
-          <p>{{ session?.summary }}</p>
-          <!-- TODO link and data -->
-          <a mat-raised-button color="primary" routerLink="story" target="_blank">Details
-            <mat-icon>open_in_new</mat-icon>
-          </a>
-        </mat-expansion-panel>
-      </mat-accordion>
-    </div>
-    <app-add-session *ngIf="editMode" [story]="story"></app-add-session>
-  </mat-card-content>
-</mat-card>

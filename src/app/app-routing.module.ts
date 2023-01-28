@@ -1,3 +1,4 @@
+import { SessionsComponent } from './components/sessions/sessions.component';
 import { StoryComponent } from './components/story/story.component';
 import { FeaturesComponent } from './components/features/features.component';
 import { QuestsComponent } from './components/quests/quests.component';
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path:'money', component: MoneyComponent },
   { path:'characters', component: MoneyComponent },
   { path:'story', component: StoryComponent },
+  { path:'sessions', component: SessionsComponent },
   { path:'', component: InventoryComponent }
 ];
 

@@ -24,11 +24,6 @@ export class StoryComponent implements OnInit {
   ) {
     this.characterService.selectedCharacter.subscribe(data => {
       this.story = data.story;
-      console.log(this.story.players);
-      this.story?.players.forEach(element => {
-        console.log("Player in parent")
-        console.log(element);
-      });
     });
 
     this.editModeService.editMode.subscribe(data => {

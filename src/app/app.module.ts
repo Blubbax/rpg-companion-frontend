@@ -54,6 +54,10 @@ import { QuestDialogComponent } from './components/parts/quest-dialog/quest-dial
 import { EditModeControlComponent } from './components/parts/edit-mode-control/edit-mode-control.component';
 import { QuestListComponent } from './components/parts/quest-list/quest-list.component';
 import { QuestStepDialogComponent } from './components/parts/quest-step-dialog/quest-step-dialog.component';
+import { SessionStepComponent } from './components/parts/session-step/session-step.component';
+import { SessionsComponent } from './components/sessions/sessions.component';
+import { CurrentSessionComponent } from './components/parts/current-session/current-session.component';
+import { AddSessionStepComponent } from './components/parts/add-session-step/add-session-step.component';
 
 @NgModule({
   declarations: [
@@ -84,7 +88,11 @@ import { QuestStepDialogComponent } from './components/parts/quest-step-dialog/q
     QuestDialogComponent,
     EditModeControlComponent,
     QuestListComponent,
-    QuestStepDialogComponent
+    QuestStepDialogComponent,
+    SessionStepComponent,
+    SessionsComponent,
+    CurrentSessionComponent,
+    AddSessionStepComponent
   ],
   imports: [
     BrowserModule,
