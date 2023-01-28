@@ -1,4 +1,4 @@
 export enum QuestType {
-  MainQuest,
-  SideQuest
+  mainquest = 1,
+  sidequest = 2
 }

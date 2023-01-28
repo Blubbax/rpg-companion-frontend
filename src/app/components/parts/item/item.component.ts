@@ -15,6 +15,7 @@ export class ItemComponent implements OnInit {
   @Output() onMoveUp = new EventEmitter<Item>();
   @Output() onMoveDown = new EventEmitter<Item>();
   @Input() item: Item | undefined;
+  @Input() editMode: boolean = false;
 
   constructor(
     private dialog: MatDialog,

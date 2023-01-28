@@ -6,4 +6,5 @@ export interface Quest {
   description: string;
   steps: QuestStep[];
   type: QuestType;
+  finished: boolean;
 }

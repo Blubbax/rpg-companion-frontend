@@ -1,5 +1,5 @@
 <div class="dialog">
-  <h1 mat-dialog-title>Edit character</h1>
+  <h1 mat-dialog-title>Edit quest</h1>
   <div mat-dialog-content>
     <mat-form-field>
       <mat-label>Name</mat-label>
@@ -11,8 +11,16 @@
       <textarea matInput [(ngModel)]="data.description" (input)="onChange()"></textarea>
     </mat-form-field>
   </div>
+
+  <label id="questType-radio-group-label">Quest Type</label>
+  <mat-radio-group (change)="onChange()" aria-labelledby="questType-radio-group-label" class="questType-radio-group"
+    [(ngModel)]="questType">
+    <mat-radio-button class="questType-radio-button" *ngFor="let type of questTypes" [value]="type">
+      {{ getQuestTypeName(type) }}
+    </mat-radio-button>
+  </mat-radio-group>
+
   <div mat-dialog-actions>
     <button mat-raised-button color="primary" [disabled]="!formValid" [mat-dialog-close]="data">Save</button>
-    <button mat-button color="warn" (click)="onDelete()">Delete</button>
   </div>
 </div>

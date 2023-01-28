@@ -23,6 +23,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 import { InventoryComponent } from './components/inventory/inventory.component';
 import { MoneyComponent } from './components/money/money.component';
@@ -46,6 +48,12 @@ import { CityDialogComponent } from './components/parts/city-dialog/city-dialog.
 import { ItemDialogComponent } from './components/parts/item-dialog/item-dialog.component';
 import { AddSessionComponent } from './components/parts/add-session/add-session.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FeatureDialogComponent } from './components/parts/feature-dialog/feature-dialog.component';
+import { AddQuestComponent } from './components/parts/add-quest/add-quest.component';
+import { QuestDialogComponent } from './components/parts/quest-dialog/quest-dialog.component';
+import { EditModeControlComponent } from './components/parts/edit-mode-control/edit-mode-control.component';
+import { QuestListComponent } from './components/parts/quest-list/quest-list.component';
+import { QuestStepDialogComponent } from './components/parts/quest-step-dialog/quest-step-dialog.component';
 
 
 @NgModule({
@@ -71,7 +79,13 @@ import { HttpClientModule } from '@angular/common/http';
     CharacterDialogComponent,
     CityDialogComponent,
     ItemDialogComponent,
-    AddSessionComponent
+    AddSessionComponent,
+    FeatureDialogComponent,
+    AddQuestComponent,
+    QuestDialogComponent,
+    EditModeControlComponent,
+    QuestListComponent,
+    QuestStepDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -97,7 +111,9 @@ import { HttpClientModule } from '@angular/common/http';
     MatDialogModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatMenuModule
+    MatMenuModule,
+    MatRadioModule,
+    MatSlideToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent]

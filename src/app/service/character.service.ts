@@ -40,23 +40,27 @@ export class CharacterService {
         description: "This is a description",
         steps: [
           {
-            name: "Go to magic",
+            name: "Go to magician",
             description: "Reading a book",
+            result: "",
             done: true
           },
           {
             name: "Go to hill",
             description: "Finding the enemy",
+            result: "",
             done: false
           }
         ],
-        type: QuestType.SideQuest
+        type: QuestType.sidequest,
+        finished: false
       },
       {
         name: "Cave with enemies",
         description: "This is a description",
         steps: [],
-        type: QuestType.MainQuest
+        type: QuestType.mainquest,
+        finished: false
       }
     ],
     inventory: {

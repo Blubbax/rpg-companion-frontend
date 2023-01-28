@@ -3,8 +3,8 @@
     <mat-card-title>{{ category?.name }}</mat-card-title>
   </div>
   <mat-card-content>
-    <app-item *ngFor="let item of category?.items; let idx = index" [item]="item" (onDelete)="deleteItem($event)"
-      (onMoveUp)="moveItemUp(idx)" (onMoveDown)="moveItemDown(idx)"></app-item>
+    <app-item *ngFor="let item of category?.items; let idx = index" [item]="item" [editMode]="enableControls"
+      (onDelete)="deleteItem($event)" (onMoveUp)="moveItemUp(idx)" (onMoveDown)="moveItemDown(idx)"></app-item>
     <mat-divider *ngIf="enableControls"></mat-divider>
     <app-add-item *ngIf="enableControls" [category]="category"></app-add-item>
     <mat-divider *ngIf="enableControls"></mat-divider>

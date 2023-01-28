@@ -1,0 +1,15 @@
+<div class="quests">
+  <mat-accordion>
+    <mat-expansion-panel *ngFor="let quest of quests">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{ quest.name }}
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <app-quest [quest]="quest" (onEdit)="questEdited(quest)" (onDelete)="deleteQuest(quest)"></app-quest>
+
+    </mat-expansion-panel>
+  </mat-accordion>
+
+</div>

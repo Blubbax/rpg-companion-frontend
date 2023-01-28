@@ -1,3 +1,4 @@
+import { EditModeService } from './../../../service/edit-mode.service';
 import { CharacterService } from './../../../service/character.service';
 import { Item } from './../../../model/item';
 import { SnackbarService } from './../../../service/snackbar.service';
@@ -15,7 +16,7 @@ export class ItemCategoryComponent implements OnInit {
   @Output() onMoveUp = new EventEmitter<Category>();
   @Output() onMoveDown = new EventEmitter<Category>();
   @Input() category: Category | undefined;
-  @Input() enableControls: boolean = true;
+  @Input() enableControls: boolean = false;
 
   constructor(
     private snackbarService: SnackbarService,

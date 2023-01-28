@@ -1,5 +1,6 @@
+import { Character } from './../../../model/character';
 import { CharacterService } from './../../../service/character.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-add-feature',
@@ -8,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddFeatureComponent implements OnInit {
 
-  public formValid = false;
+  @Input() character: Character | undefined;
+
   public name = "";
   public description = "";
+  public formValid = false;
 
   constructor(private characterService: CharacterService) { }
 
@@ -26,8 +29,13 @@ export class AddFeatureComponent implements OnInit {
   }
 
   onSubmit() {
-    // TODO
+    this.character?.features.push({
+      name: this.name,
+      description: this.description
+    });
     this.characterService.characterChanged();
+    this.name = "";
+    this.description = "";
   }
 
 }

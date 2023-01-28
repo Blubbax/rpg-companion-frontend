@@ -2,8 +2,9 @@
 
   <div class="item-name">{{ this.item?.name }}</div>
 
-  <div class="quantity-selector">
+  <span class="spacer" *ngIf="!editMode"></span>
 
+  <div class="quantity-selector">
     <button mat-icon-button color="primary" aria-label="Decrease" (click)="decrease(1)">
       <mat-icon>remove</mat-icon>
     </button>
@@ -13,35 +14,34 @@
     <button mat-icon-button color="primary" aria-label="Increase" (click)="increase(1)">
       <mat-icon>add</mat-icon>
     </button>
-
-
   </div>
 
-  <span class="spacer"></span>
+  <span class="spacer" *ngIf="editMode"></span>
 
-  <button mat-icon-button [matMenuTriggerFor]="menu">
-    <mat-icon>more_vert</mat-icon>
-  </button>
-  <mat-menu #menu="matMenu">
-    <button mat-menu-item (click)="toggleFavorite()">
-      <mat-icon color="accent">favorite</mat-icon>
-      <span *ngIf="this.item?.favorite">Remove from Favorites</span>
-      <span *ngIf="!this.item?.favorite">Add to Favorites</span>
+  <div class="menu" *ngIf="editMode">
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon>more_vert</mat-icon>
     </button>
-    <button mat-menu-item (click)="delete()">
-      <mat-icon color="warn">delete</mat-icon>
-      <span>Delete</span>
-    </button>
-    <button mat-menu-item (click)="moveDown()">
-      <mat-icon>arrow_upward</mat-icon>
-      <span>Move Up</span>
-    </button>
-    <button mat-menu-item (click)="moveUp()">
-      <mat-icon>arrow_downward</mat-icon>
-      <span>Move Down</span>
-    </button>
-  </mat-menu>
-
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="toggleFavorite()">
+        <mat-icon color="accent">favorite</mat-icon>
+        <span *ngIf="this.item?.favorite">Remove from Favorites</span>
+        <span *ngIf="!this.item?.favorite">Add to Favorites</span>
+      </button>
+      <button mat-menu-item (click)="delete()">
+        <mat-icon color="warn">delete</mat-icon>
+        <span>Delete</span>
+      </button>
+      <button mat-menu-item (click)="moveDown()">
+        <mat-icon>arrow_upward</mat-icon>
+        <span>Move Up</span>
+      </button>
+      <button mat-menu-item (click)="moveUp()">
+        <mat-icon>arrow_downward</mat-icon>
+        <span>Move Down</span>
+      </button>
+    </mat-menu>
+  </div>
 
 
 </div>

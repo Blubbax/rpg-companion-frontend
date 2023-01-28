@@ -1,3 +1,4 @@
+import { EditModeService } from './../../service/edit-mode.service';
 import { Item } from './../../model/item';
 import { SnackbarService } from './../../service/snackbar.service';
 import { Inventory } from './../../model/inventory';
@@ -14,10 +15,12 @@ export class InventoryComponent implements OnInit {
 
   public inventory: Inventory | undefined;
   public favorites: Category | undefined;
+  public editMode = false;
 
   constructor(
     private characterService: CharacterService,
-    private snackbarService: SnackbarService
+    private snackbarService: SnackbarService,
+    private editModeService: EditModeService
   ) { }
 
   ngOnInit(): void {
@@ -28,6 +31,10 @@ export class InventoryComponent implements OnInit {
 
     this.characterService.favoritesChanged.subscribe(date => {
       this.determineFavorites();
+    });
+
+    this.editModeService.editMode.subscribe(data => {
+      this.editMode = data;
     })
   }
 

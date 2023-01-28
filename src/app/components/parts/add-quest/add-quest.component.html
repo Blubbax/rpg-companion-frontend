@@ -1,0 +1,31 @@
+<mat-card>
+  <div class="header">
+    <mat-card-title>Add quest</mat-card-title>
+  </div>
+  <mat-card-content>
+    <mat-form-field>
+      <mat-label>Name</mat-label>
+      <input matInput required [(ngModel)]="name" (input)="onChange()">
+    </mat-form-field>
+
+    <br>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Textarea</mat-label>
+      <textarea matInput [(ngModel)]="description" (input)="onChange()" required></textarea>
+    </mat-form-field>
+
+    <br>
+
+    <label id="questType-radio-group-label">Quest Type</label>
+    <mat-radio-group (change)="onChange()" aria-labelledby="questType-radio-group-label" class="questType-radio-group"
+      [(ngModel)]="questType">
+      <mat-radio-button class="questType-radio-button" *ngFor="let type of questTypes" [value]="type">
+        {{ getQuestTypeName(type) }}
+      </mat-radio-button>
+    </mat-radio-group>
+
+
+    <button mat-raised-button color="primary" [disabled]="!formValid" (click)="onSubmit()">Add</button>
+  </mat-card-content>
+</mat-card>

@@ -5,12 +5,31 @@
     <mat-step *ngFor="let step of quest?.steps">
       <ng-template matStepLabel>{{ step.name }}</ng-template>
       <div>
-        <p>{{ step.description }}</p>
-        <mat-checkbox class="example-margin">Fulfilled</mat-checkbox>
+        <div class="description" *ngIf="step.description != ''">
+          <p class="heading">Description: </p>
+          <p class="multiline-text">{{ step.description }}</p>
+        </div>
+
+        <div class="result" *ngIf="step.result != ''">
+          <p class="heading">Result: </p>
+          <p class="multiline-text">{{ step.result }}</p>
+        </div>
+
+        <mat-slide-toggle [(ngModel)]="step.done" (change)="dataChanged()">Task fulfilled</mat-slide-toggle>
+
+        <div class="task-actions">
+          <button mat-button (click)="editStep(step)">Edit Task</button>
+        </div>
       </div>
     </mat-step>
   </mat-stepper>
 
-  // TODO Add step
+  <mat-divider></mat-divider>
+  <div class="actions">
+    <button mat-button *ngIf="editMode" (click)="edit()">Edit Quest</button>
+    <button mat-button *ngIf="editMode" (click)="delete()">Delete Quest</button>
+    <button mat-button (click)="addStep()">Add Task</button>
+    <div class="spacer"></div>
+  </div>
 
 </div>
