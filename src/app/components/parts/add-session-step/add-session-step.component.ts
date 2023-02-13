@@ -24,9 +24,9 @@ export class AddSessionStepComponent implements OnInit {
 
   onSubmit() {
       this.session?.steps.push({
-        name: this.name,
-        place: this.place,
-        description: this.description
+        name: this.name.trim(),
+        place: this.place.trim(),
+        description: this.description.trim()
       });
       this.name = "";
       this.place = "";

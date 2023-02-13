@@ -3,7 +3,7 @@
     <mat-card-title>{{ feature?.name }}</mat-card-title>
   </div>
   <mat-card-content>
-    <p>{{ feature?.description }}</p>
+    <p class="multiline-text">{{ feature?.description }}</p>
     <mat-divider *ngIf="editMode"></mat-divider>
   </mat-card-content>
   <div class="actions" *ngIf="editMode">
